@@ -8,13 +8,7 @@
     "16": "public/images/icon.png"
   },
 
-  "page_action": {
-    "default_popup": "public/popup.html",
-    "default_icon": {
-      "16": "public/images/icon.png"
-    }
-  },
-  "broser_action": {
+  "browser_action": {
     "default_popup": "public/popup.html",
     "default_icon": {
       "16": "public/images/icon.png"
@@ -25,6 +19,11 @@
     "scripts": ["src/background.js"],
     "presistent": false
   },
+  "content_scripts": [{
+    "js": ["src/content_script.js"],
+    "matches": ["https://github.com/*"],
+    "run_at": "document_idle"
+  }],
 
   "options_page": "public/options.html",
   "permissions": ["activeTab", "declarativeContent", "storage"]
