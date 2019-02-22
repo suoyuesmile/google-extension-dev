@@ -6,7 +6,7 @@
 1. 基础配置、项目结构
 2. LOGO、popup page、backgound page、option page
 
-#### stage2 引入相关模块技术选型
+#### stage2 引入模块，技术选型
 1. JavaScript ES6
 2. Sass
 3. yarn 依赖管理
