@@ -4,11 +4,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = {
-  // mode: 'development',
+  mode: 'development',
   entry: {
-    background: './src/backgound/index.js',
-    popup: './src/popup/index.js',
-    option: './src/option/index.js'
+    background: './src/js/background/index.js'
+    // popup: './src/popup/index.js',
+    // option: './src/option/index.js'
   },
   output: {
     filename: '[name].js',
@@ -24,40 +24,41 @@ module.exports = {
       {
         test: /(\.png|\.jpg|\.gif|\.svg)$/,
         use: ['file-loader']
-      },
-      {
-        test: /\.js$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-transform-runtime']
-          }
-        }
       }
+      // {
+      //   test: /\.js$/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['@babel/preset-env'],
+      //       plugins: ['@babel/plugin-transform-runtime']
+      //     }
+      //   }
+      // }
     ]
   },
-  // devtool: 'inline-source-map',
-  // devServer: {
-  //   contentBase: path.join(__dirname, 'dist'),
-  //   compress: true,
-  //   port: 9000,
-  //   hot: true
-  // },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,
+    hot: true
+  },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['dist/*']),
     new HtmlWebpackPlugin({
       title: 'Chrome Extension',
-      filename: 'assets/background.html'
+      filename: 'background.html',
+      appMountId: 'background'
     }),
-    new HtmlWebpackPlugin({
-      title: 'Chrome Extension',
-      filename: 'assets/popup.html'
-    }),
-    new HtmlWebpackPlugin({
-      title: 'Chrome Extension',
-      filename: 'assets/options.html'
-    }),
+    // new HtmlWebpackPlugin({
+    //   title: 'Chrome Extension',
+    //   filename: 'assets/popup.html'
+    // }),
+    // new HtmlWebpackPlugin({
+    //   title: 'Chrome Extension',
+    //   filename: 'assets/option.html'
+    // }),
     new webpack.HotModuleReplacementPlugin()
   ]
 }
