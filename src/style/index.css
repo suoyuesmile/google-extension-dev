@@ -1,0 +1,8 @@
+.title {
+  color: red;
+}
+.avater {
+  height: 300px;
+  width: 300px;
+  background: url(../image/icon.png) no-repeat;
+}
