@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Getting Started Example",
+  "version": "0.0.1",
+
+  "description": "Build an Extension!",
+  "icons": {
+    "16": "img/icon.png"
+  },
+
+  "browser_action": {
+    "default_popup": "static/popup.html",
+    "default_icon": {
+      "16": "img/icon.png"
+    }
+  },
+
+  "background": {
+    "scripts": ["static/background.js"],
+    "presistent": false
+  },
+  "content_scripts": [{
+    "js": ["content/index.js"],
+    "matches": ["https://github.com/*"],
+    "run_at": "document_idle"
+  }],
+
+  "options_page": "html/options.html",
+  "permissions": ["activeTab", "declarativeContent", "storage"]
+}

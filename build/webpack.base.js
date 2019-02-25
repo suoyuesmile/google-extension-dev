@@ -11,7 +11,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, '../crx'),
+    path: path.resolve(__dirname, '../crx/static'),
     publicPath: '/'
   },
   module: {
@@ -35,19 +35,19 @@ module.exports = {
     new CleanWebpackPlugin([path.resolve(__dirname, '../crx/*')]),
     new HtmlWebpackPlugin({
       title: 'Chrome Extension',
-      filename: 'html/background.html',
+      filename: 'background.html',
       // template: 'src/html/background.html',
       chunks: ['background']
     }),
     new HtmlWebpackPlugin({
       title: 'Chrome Extension',
-      filename: 'html/popup.html',
+      filename: 'popup.html',
       template: 'html/popup.html',
       chunks: ['popup']
     }),
     new HtmlWebpackPlugin({
       title: 'Chrome Extension',
-      filename: 'html/option.html',
+      filename: 'option.html',
       template: 'html/option.html',
       chunks: ['option']
     })

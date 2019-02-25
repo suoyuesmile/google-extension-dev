@@ -8,10 +8,11 @@
 
 #### stage2 引入模块，技术选型
 1. JavaScript ES6
-2. Sass
+2. Sass 预编译
 3. yarn 依赖管理
 4. Webpack 压缩打包
 5. babel 转换编译
+6. Jest 单元测试
 
 #### stage3 常用实现
 1. 跨域请求
