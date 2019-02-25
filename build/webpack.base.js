@@ -26,6 +26,11 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
   plugins: [
     new CleanWebpackPlugin([path.resolve(__dirname, '../crx/*')]),
     new HtmlWebpackPlugin({
@@ -37,12 +42,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Chrome Extension',
       filename: 'html/popup.html',
-      template: 'html/popup.html'
+      template: 'html/popup.html',
+      chunks: ['popup']
     }),
     new HtmlWebpackPlugin({
       title: 'Chrome Extension',
       filename: 'html/option.html',
-      template: 'html/option.html'
+      template: 'html/option.html',
+      chunks: ['option']
     })
   ]
 }

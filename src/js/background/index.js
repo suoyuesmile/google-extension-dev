@@ -1,21 +1,29 @@
 import '../../style/test.scss'
-import { print } from '../lib/utils'
-// import 'lodash'
-import { cube } from '../lib/math'
+// import { print } from '../lib/utils'
+import 'lodash'
+// import { cube } from '../lib/math'
 
 console.log('hello')
 
-function component() {
-  let el = document.createElement('div')
+// 模块的动态加载
+// 需要该模块时才加载
+// 模块加载成功才执行
+function getComponent() {
+  return import(/* webpackChunkName: "lodash" */ 'lodash')
+    .then(({ default: _ }) => {
+      let el = document.createElement('div')
 
-  // el.innerHTML = _.join(['hello'], '')
-  // el.className = 'title'
+      el.innerHTML = _.join(['hello'], '')
+      // el.className = 'title'
 
-  el.innerHTML = ['hello', '5 cubed is equal to ' + cube(5)].join('\n\n')
-  return el
+      // el.innerHTML = ['hello', '5 cubed is equal to ' + cube(5)].join('\n\n')
+      return el
+    })
+    .catch(error => 'A error occured while loading this component')
 }
-
-document.body.appendChild(component())
+getComponent().then(component => {
+  document.body.appendChild(component)
+})
 print()
 
 // if (module.hot) {
