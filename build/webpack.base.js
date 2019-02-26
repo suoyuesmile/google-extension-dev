@@ -7,7 +7,8 @@ module.exports = {
   entry: {
     background: './js/background/index.js',
     popup: './js/popup/index.js',
-    option: './js/option/index.js'
+    option: './js/option/index.js',
+    content: './js/content/index.js'
   },
   output: {
     filename: '[name].js',
@@ -37,13 +38,16 @@ module.exports = {
       title: 'Chrome Extension',
       filename: 'background.html',
       // template: 'src/html/background.html',
-      chunks: ['background']
+      chunks: ['background'],
     }),
     new HtmlWebpackPlugin({
       title: 'Chrome Extension',
       filename: 'popup.html',
       template: 'html/popup.html',
-      chunks: ['popup']
+      chunks: ['popup'],
+      files: {
+        css: ['style/popup.scss']
+      }
     }),
     new HtmlWebpackPlugin({
       title: 'Chrome Extension',

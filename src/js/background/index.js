@@ -1,5 +1,5 @@
 import '../../style/test.scss'
-// import { print } from '../lib/utils'
+import { print } from '../lib/utils'
 import 'lodash'
 // import { cube } from '../lib/math'
 
@@ -14,7 +14,7 @@ function getComponent() {
       let el = document.createElement('div')
 
       el.innerHTML = _.join(['hello'], '')
-      // el.className = 'title'
+      el.className = 'title'
 
       // el.innerHTML = ['hello', '5 cubed is equal to ' + cube(5)].join('\n\n')
       return el
@@ -63,3 +63,4 @@ print()
 //     }
 //   })
 // })
+  
